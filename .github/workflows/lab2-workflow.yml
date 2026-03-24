@@ -11,6 +11,7 @@ on:
         type: string
         required: true
         description: "Enter a custom message"
+      
 
 jobs:
   job1:
@@ -22,3 +23,7 @@ jobs:
     steps:
       - name: Printing Custom Message
         run: echo ${{ inputs.custom_message }}
+
+      - name: Printing run-job boolean value
+        if: inputs.run-job == 'true' || inputs.run-job
+        run: echo ${{ inputs.run-job }}
